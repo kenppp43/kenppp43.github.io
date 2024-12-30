@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>賣拉麵 - 美味拉麵專賣店</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft JhengHei", sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+        }
+
+        .header {
+            background-color: #000;
+            color: white;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        /* 新增橫幅樣式 */
+        .banner {
+            background-color: #e74c3c;
+            color: white;
+            text-align: center;
+            padding: 0.5rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 101;
+            animation: slideBanner 20s linear infinite;
+        }
+
+        @keyframes slideBanner {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* 調整header位置以適應橫幅 */
+        .header {
+            top: 2rem;
+        }
+
+        /* 調整hero區域的padding以適應新的header位置 */
+        .hero {
+            padding-top: 5rem;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                        url('/api/placeholder/1200/800') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .menu-section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .menu-item {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .menu-item-content {
+            padding: 1rem;
+        }
+
+        .menu-item h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: #e74c3c;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #c0392b;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 新增橫幅 -->
+    <div class="banner">
+        🍜 限時特惠！平日午餐時段 所有拉麵9折優惠 🍜 外帶自取再折10元 🍜 加入Line好友即送溏心蛋一顆
+    </div>
+
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">賣拉麵</div>
+            <div class="nav-links">
+                <a href="#menu">菜單</a>
+                <a href="#about">關於我們</a>
+                <a href="#contact">聯絡資訊</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>用心製作的美味拉麵</h1>
+            <p>使用最新鮮的食材，為您呈現最道地的日式拉麵</p>
+            <a href="#menu" class="button">查看菜單</a>
+        </div>
+    </section>
+
+    <section id="menu" class="menu-section">
+        <h2>人氣拉麵</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="豚骨拉麵.jpg" alt="豚骨拉麵">
+                <div class="menu-item-content">
+                    <h3>豚骨拉麵</h3>
+                    <p>濃郁豬骨湯底，搭配特製叉燒</p>
+                    <div class="price">NT$ 220</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="醬油拉麵.jpg" alt="醬油拉麵">
+                <div class="menu-item-content">
+                    <h3>醬油拉麵</h3>
+                    <p>清爽醬油湯底，完美搭配溏心蛋</p>
+                    <div class="price">NT$ 200</div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="味噌拉麵.webp" alt="味噌拉麵">
+                <div class="menu-item-content">
+                    <h3>味噌拉麵</h3>
+                    <p>香濃味噌湯底，配上新鮮蔬菜</p>
+                    <div class="price">NT$ 210</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>賣拉麵 © 2024 版權所有</p>
+        <p>地址：台北市某某區某某路123號</p>
+        <p>電話：02-1234-5678</p>
+    </footer>
+
+    <script>
+        // 平滑滾動效果
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
